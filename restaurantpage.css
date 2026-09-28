@@ -1,0 +1,333 @@
+*{
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+:root{
+    --burgundy:#6B1E1E;
+    --gold:#F4B942;
+    --cream:#FFF8EE;
+    --card:#FFFDF8;
+    --terracotta:#A63D2F;
+    --dark-brown:#2B2118;
+    --white:#FFFFFF;
+}
+body{
+    margin:0;
+    width:100%;
+    overflow-x: hidden;
+    font-family: Arial;
+    background-color:var(--cream);
+    color: var(--dark-brown);
+}
+img{
+    max-width:100%;
+    height: auto;
+}
+
+header h1{
+    font-family:Algerian !important;
+    font-size: 45px;
+    font-weight:bold;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-shadow:2px 2px 5px rgba(0,0,0,0.6);
+    animation: header 1.2s ease;
+}
+nav{
+    animation: nav 1.2s ease;
+}
+@keyframes header{
+    from{
+        opacity:0;
+        transform: translateX(-200px);
+    }
+    to{
+        opacity:1;
+        transform: translateX(0);
+    }
+}
+@keyframes nav{
+    from{
+        opacity:0;
+        transform: translateX(200px);
+    }
+    to{
+        opacity:1;
+        transform: translateX(0);
+    }
+}
+
+
+header{
+    background-color:var(--burgundy);
+    color:var(--white);
+    text-align: center;
+    padding:20px;
+}
+
+nav .nav-link{
+    color:var(--white);
+    /* text-decoration: none; */
+    margin:10px 20px;
+    transition: 0.3s;
+}
+nav .nav-link:hover{
+    color:var(--gold);
+}
+#foodbackground{
+    background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url("hotelinterior.jpg");
+    background-size: cover;
+    background-position: center ;
+}
+
+#welcome{
+    text-align:center;
+    color:white;
+    padding:80px 20px;
+}
+
+#menu{
+    text-align: center;
+    padding:30px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    
+    
+}
+
+#menu article{
+    
+    width:100%;
+    height:calc(100% - 30px);
+    /* max-width: 85%; */
+    transition: 0.3s;
+    border:2px solid var(--gold);
+
+    margin:15px 0;
+    padding:15px;
+    background-color:var(--card);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+#menu article:hover{
+    transform:translateY(-20px);
+}
+#menu article button{
+    /* background-color:white; */
+    /* transition:background 1s; */
+    /* border-radius: 5px; */
+    transition: 0.3s;
+    /* border-color: brown; */
+}
+#menu article button:hover{
+    background:var(--gold);
+    color: var(--dark-brown);
+    border-color: var(--gold);
+}
+#menu h2{
+    /* flex-basis: 100%; */
+    color:white;
+    font-size: 35px;
+    text-shadow: 2px 2px 5px black;
+}
+
+#menu img{
+    border-radius: 10px;
+}
+
+#offer{
+    text-align: center;
+    background-color: brown;
+    padding:30px;
+    
+    animation: offerbox 2s infinite alternate;
+}
+@keyframes offerbox{
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform:translateY(-8px);
+    }
+}
+#offer h1{
+    font-size: 45px;
+    color: yellow;
+    animation: discount 0.5s infinite alternate;
+}
+@keyframes discount{
+    from{
+        opacity:0.1;
+    }
+    to{
+        opacity:2;
+    }
+}
+#offer h2{
+    font-size: 30px;
+    animation:offertext 0.5s infinite alternate;
+}
+@keyframes offertext{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.08);
+    }
+}
+
+
+#contact{
+    text-align: center;
+    padding:30px;
+    background-color: peachpuff;
+    
+}
+
+input{
+    padding:10px;
+}
+
+footer{
+    text-align: center;
+    background-color: brown;
+    color:white;
+    padding:15px;
+}
+
+.order-btn{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    width:60px;
+    height:60px;
+    border:none;
+    padding: 0;
+    border-radius: 35px;
+    background-color: white;
+    overflow: hidden;
+    cursor:pointer;
+    transition: width 0.5s ease;
+    margin:20px auto;
+}
+.order-btn i{
+    min-width:60px;
+    font-size: 55px;
+    color:#173b63;
+    transition: 0.5s ease;
+}
+.order-btn:hover span{
+    opacity:1;
+}
+.order-btn:hover{
+    width:320px;
+}
+
+
+.order-btn span{
+    display: flex;
+    opacity:0;
+    width:auto;
+    height:30px;
+    white-space: nowrap;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-family: Arial, sans-serif;
+    transition: opacity 0.4s ease;
+    color:brown;
+}
+#welcome,
+#menu,
+#about,
+#contact{
+    width: 100%;
+    /* max-width: 1400px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media (max-width:600px){
+    header h1{
+        font-size: 30px;
+        letter-spacing: 2px;
+    }
+    /* nav a{
+        display:block;
+        margin:10px 0;
+    } */
+    #welcome{
+        padding:50px 15px;
+    }
+    #welcome h2{
+        font-size:28px;
+    }
+    #welcome p{
+        font-size: 16px;
+    }
+    /* #menu article{
+        display:block;
+        width:85%;
+        margin:20px auto;
+    } */
+    #menu img{
+        max-width: 100%;
+        height: auto;
+    }
+    #offer{
+        padding:25px 15px;
+    }
+    #offer h2{
+        font-size: 25px;
+    }
+    #offer h1{
+        font-size: 38px;
+    }
+    #offer p{
+        font-size: 16px;
+    }
+    #about{
+        padding: 40px 15px;
+    }
+    #about h2{
+        font-size: 28px;
+    }
+    #about p{
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    #contact{
+        padding: 40px 15px;
+    }
+    #contact h2{
+        font-size: 28px;
+    }
+    #contact form{
+        width:90%;
+        margin: auto;
+    }
+    .order-btn{
+        width: 100%;
+        max-width: 320px;
+    }
+    .order-btn span{
+        opacity:1;
+        font-size: 16px;
+        margin-left: 5px;
+    }
+    #contact input,
+    #contact textarea,
+    #contact select{
+        width:100%;
+        box-sizing: border-box;
+    }
+    #contact button{
+        max-width: 100%;
+    }
+}
+
