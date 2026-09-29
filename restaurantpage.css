@@ -31,51 +31,78 @@ header h1{
     font-size: 45px;
     font-weight:bold;
     letter-spacing: 2px;
-    color: var(--gold);
-    text-shadow:2px 2px 5px rgba(0,0,0,0.6);
-    animation: header 1.2s ease;
+    color: #F4B942;
+    text-shadow:2px 2px 5px #2B2118;
+    margin:0;
 }
-nav{
-    animation: nav 1.2s ease;
-}
-@keyframes header{
-    from{
-        opacity:0;
-        transform: translateX(-200px);
-    }
-    to{
-        opacity:1;
-        transform: translateX(0);
-    }
-}
-@keyframes nav{
-    from{
-        opacity:0;
-        transform: translateX(200px);
-    }
-    to{
-        opacity:1;
-        transform: translateX(0);
-    }
-}
-
 
 header{
-    background-color:var(--burgundy);
-    color:var(--white);
-    text-align: center;
-    padding:20px;
+    background-color:#5A1717;
+    /* color:#FFF8EE; */
+    /* text-align: center; */
+    /* padding:15px 30px; */
+    border-bottom:2px solid #F4B942;
+}
+header .navbar{
+    padding: 12px 30px;
+}
+header .container-fluid{
+    display:flex;
+    align-items:center;
 }
 
 nav .nav-link{
-    color:var(--white);
+    color:#FFF8EE !important;
     /* text-decoration: none; */
-    margin:10px 20px;
-    transition: 0.3s;
+    margin:5px 15px;
+    transition: 0.3s ease;
 }
 nav .nav-link:hover{
-    color:var(--gold);
+    color:#F4B942 !important;
 }
+nav .nav-link.active{
+    background-color: #F4B942;
+    color: #5A1717 !important;
+    border-radius: 10px;
+}
+.navbar-collapse{
+    justify-content: flex-end;
+}
+
+.navbar-nav{
+    margin-left: auto !important;
+}
+.navbar-toggler{
+    border:2px solid #F4B942;
+}
+
+.navbar-toggler-icon{
+    filter: brightness(0) invert(1);
+}
+.cart-btn{
+    background-color: transparent !important;
+    color: #FFF8EE !important;
+    border: 1px solid #F4B942 !important;
+    margin-left: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-decoration: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover,
+.cart-btn:focus{
+    background-color: #F4B942 !important;
+    color: #5A1717 !important;
+    border-color: #F4B942 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-decoration: none;
+}
+
 #foodbackground{
     background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url("hotelinterior.jpg");
     background-size: cover;
@@ -140,7 +167,7 @@ nav .nav-link:hover{
 
 #offer{
     text-align: center;
-    background-color: brown;
+    background-color:var(--burgundy);
     padding:30px;
     
     animation: offerbox 2s infinite alternate;
@@ -155,15 +182,15 @@ nav .nav-link:hover{
 }
 #offer h1{
     font-size: 45px;
-    color: yellow;
+    color:var(--gold);
     animation: discount 0.5s infinite alternate;
 }
 @keyframes discount{
     from{
-        opacity:0.1;
+        opacity:0.5;
     }
     to{
-        opacity:2;
+        opacity:1;
     }
 }
 #offer h2{
@@ -178,13 +205,191 @@ nav .nav-link:hover{
         transform:scale(1.08);
     }
 }
+#about{
+    background-color: var(--cream);
+    padding: 70px 30px;
+}
 
+.about-container{
+    max-width: 1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-content h2{
+    font-size:40px;
+    color:var(--burgundy);
+    margin-bottom:20px;
+}
+
+.about-content h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:4px;
+    background-color:var(--gold);
+    margin-top:10px;
+    border-radius:5px;
+}
+
+.about-content p{
+    font-size:17px;
+    line-height:1.8;
+    color:#4b4035;
+}
+
+.about-content .about-intro{
+    font-size:19px;
+    font-weight:500;
+}
+
+
+.about-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.info-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:22px;
+    background-color:var(--card);
+    border:1px solid #ead6b4;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s ease;
+}
+
+/* .info-box:hover{
+    transform:translateY(-5px);
+    border-color:var(--gold);
+} */
+
+.info-box i{
+    font-size:28px;
+    color:var(--terracotta);
+    min-width:35px;
+}
+
+.info-box h3{
+    margin:0 0 5px;
+    color:var(--burgundy);
+    font-size:18px;
+}
+
+.info-box p{
+    margin:0;
+    color:#555;
+    font-size:15px;
+}
 
 #contact{
+    background-color: #F7D7B5;
+    padding: 70px 20px;
     text-align: center;
-    padding:30px;
-    background-color: peachpuff;
-    
+}
+
+#contact h2{
+    color: var(--burgundy);
+    font-size: 38px;
+    margin-bottom: 30px;
+}
+
+#contact form{
+    max-width: 650px;
+    margin: auto;
+    background-color: var(--cream);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(43,33,24,0.2);
+    text-align: left;
+}
+
+#contact label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--dark-brown);
+}
+
+#contact input,
+#contact select{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #d6b58a;
+    border-radius: 8px;
+    background-color: #FFFDF8;
+    color: var(--dark-brown);
+}
+
+#contact input:focus,
+#contact select:focus{
+    border-color: var(--gold);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(244,185,66,0.25);
+}
+
+#contact button{
+    display: block;
+    margin: 10px auto 0;
+}
+#contact button[type="submit"]{
+    background-color:var(--burgundy) !important;
+    color:var(--cream) !important;
+    border:2px solid var(--gold) !important;
+    padding:10px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s ease;
+}
+
+#contact button[type="submit"]:hover{
+    background-color:var(--gold) !important;
+    color:var(--burgundy) !important;
+    transform:translateY(-2px);
+}
+.experience{
+    text-align:center;
+    margin-top:35px;
+    padding-top:25px;
+    border-top:1px solid #e0c08c;
+}
+
+.experience h3{
+    color:var(--burgundy);
+    margin-bottom:8px;
+}
+
+.experience p{
+    color:#555;
+}
+
+.stars{
+    margin-top:15px;
+}
+
+.stars i{
+    font-size:28px;
+    color:#ccc;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.stars i:hover{
+    color:var(--gold);
+    transform:scale(1.15);
+}
+#ratingMessage{
+    margin-top:15px;
+    color:var(--burgundy);
+    font-weight:bold;
+    line-height:1.6;
 }
 
 input{
@@ -193,8 +398,8 @@ input{
 
 footer{
     text-align: center;
-    background-color: brown;
-    color:white;
+    background-color:var(--burgundy);
+    color:var(--white);
     padding:15px;
 }
 
@@ -252,15 +457,18 @@ footer{
 }
 
 
-@media (max-width:600px){
+@media (max-width:767px){
     header h1{
         font-size: 30px;
         letter-spacing: 2px;
     }
-    /* nav a{
-        display:block;
-        margin:10px 0;
-    } */
+    .navbar-nav{
+        align-items: center;
+    }
+    .cart-btn{
+        margin-top: 10px;
+        margin: 10px 0 0 0;
+    }
     #welcome{
         padding:50px 15px;
     }
@@ -292,15 +500,30 @@ footer{
         font-size: 16px;
     }
     #about{
-        padding: 40px 15px;
+    padding:50px 20px;
     }
-    #about h2{
-        font-size: 28px;
+
+    .about-container{
+        grid-template-columns:1fr;
+        gap:30px;
     }
-    #about p{
-        font-size: 16px;
-        line-height: 1.6;
+
+    .about-content h2{
+        font-size:30px;
     }
+
+    .about-content p{
+        font-size:16px;
+    }
+
+    .about-info{
+        grid-template-columns:1fr;
+    }
+
+    .info-box{
+        padding:18px;
+    }
+
     #contact{
         padding: 40px 15px;
     }
@@ -308,8 +531,15 @@ footer{
         font-size: 28px;
     }
     #contact form{
-        width:90%;
+        width:100%;
+        max-width: 650px;
         margin: auto;
+    }
+    #contact small{
+        display: block;
+        text-align: center;
+        margin: -8px 0 20px;
+        color:#6b6259;
     }
     .order-btn{
         width: 100%;
@@ -324,7 +554,7 @@ footer{
     #contact textarea,
     #contact select{
         width:100%;
-        box-sizing: border-box;
+    
     }
     #contact button{
         max-width: 100%;

@@ -10,11 +10,11 @@
     </head>
     <body>
         <header>
-            <h1>🍴 FOODOLOGY 🍴</h1>
+           
            <nav class="navbar navbar-expand-md">
 
-                <div class="container">
-
+                <div class="container-fluid">
+                    <h1>🍴 FOODOLOGY 🍴</h1>
                     <button class="navbar-toggler"
                             type="button"
                             data-bs-toggle="collapse"
@@ -29,7 +29,7 @@
 
                     <div class="collapse navbar-collapse" id="foodNav">
 
-                        <ul class="navbar-nav mx-auto">
+                        <ul class="navbar-nav mS-auto align-items-center">
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#welcome">Home</a>
@@ -47,6 +47,11 @@
                                 <a class="nav-link" href="#contact">Contact</a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="btn cart-btn" href="#cart">
+                                    🛒Go to Cart
+                                </a>
+                            </li>
                         </ul>
 
                     </div>
@@ -140,13 +145,81 @@
                 </button>
             </section>
             <section id="about">
-                <h2>About Foodology</h2>
-                <p>
-                    Foodology is a friendly restaurant serving delicious
-                    and fresh food for everyone. 
-                </p>
-                <p><b>Opening Hours:</b> 10:00 AM - 10:00 PM</p>
-                <p><b>Location:</b>Vellangallur,Thrissur</p>
+
+                <div class="about-container">
+
+                    <div class="about-content">
+
+                        <h2>About Foodology</h2>
+
+                        <p class="about-intro">
+                            At Foodology, we believe great food brings people together.
+                            We serve delicious, freshly prepared dishes using quality
+                            ingredients in a warm and welcoming atmosphere.
+                        </p>
+
+                        <p>
+                            Whether you're enjoying a quick meal with friends, celebrating
+                            a special occasion, or simply craving your favourite food,
+                            Foodology is here to make every visit memorable.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-info">
+
+                        <div class="info-box">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            <div>
+                                <h3>Opening Hours</h3>
+                                <p>10:00 AM - 10:00 PM</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div>
+                                <h3>Our Location</h3>
+                                <p>Vellangallur, Thrissur</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>foodology@gmail.com</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            <div>
+                                <h3>Call Us</h3>
+                                <p>+91 9778160072</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </section>
             <section id="contact">
                 <h2>Contact/Reservation</h2>
@@ -156,8 +229,8 @@
                         <input type="text" id="name" name="name" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
+                        <label for="whatsapp number">WhatsApp Number:</label>
+                        <input type="WhatsApp Number" id="WhatsApp Number" name="WhatsApp Number" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="phone">Phone:</label>
@@ -183,6 +256,21 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Reserve Table</button>
+                    <div class="experience">
+
+                        <h3>How was your experience?</h3>
+
+                        <p>We'd love to hear your feedback!</p>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div id="ratingMessage"></div>
+                    </div>
                 </form>
             </section>
         </main>
@@ -190,6 +278,38 @@
             <p>© 2026 Foodology!| All Rights Reserved</p>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+
+            const stars = document.querySelectorAll(".stars i");
+
+            const ratingMessage = document.getElementById("ratingMessage");
+
+
+            stars.forEach((star, index) => {
+
+                star.addEventListener("click", () => {
+
+                    stars.forEach((s, i) => {
+
+                        if (i <= index) {
+                            s.style.color = "#F4B942";
+                        } 
+                        else {
+                            s.style.color = "#ccc";
+                        }
+
+                    });
+
+
+                    ratingMessage.innerHTML =
+                        "Thank you for your feedback! ❤️<br>" +
+                        "We hope to see you again soon!";
+
+                });
+
+            });
+
+        </script>
     </body>
     
 </html>
