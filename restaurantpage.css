@@ -108,37 +108,183 @@ nav .nav-link.active{
     text-decoration:none;
 }
 #foodbackground{
-    background-image:
+    background-image:none;
+    background-color: var(--cream);
+}
+
+.hero-section {
+    position: relative;
+    min-height: 620px;
+
+    background-image: url("hotelinterior.jpg");
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+
+/* Dark overlay */
+
+.hero-overlay {
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 20px;
+
+    background:
         linear-gradient(
-            rgba(0,0,0,0.45),
-            rgba(0,0,0,0.45)
-        ),
-        url("hotelinterior.jpg");
+            90deg,
+            rgba(0, 0, 0, 0.82),
+            rgba(0, 0, 0, 0.58),
+            rgba(0, 0, 0, 0.38)
+        );
 
-    background-size:cover;
-    background-position:center;
+    text-align: center;
 }
 
-#welcome{
-    text-align:center;
-    color:white;
-    padding:80px 20px;
+
+/* Hero content */
+
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+
+    color: var(--white);
+
+    animation: heroFadeIn 1.2s ease;
 }
 
-#welcome h2{
-    margin-bottom:15px;
+
+/* Small label */
+
+.hero-label {
+    margin-bottom: 18px;
+
+    color: var(--gold);
+
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
-#welcome p{
-    font-size:18px;
+
+/* Main heading */
+
+.hero-content h1 {
+    margin: 0 0 22px;
+
+    color: var(--white);
+
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 7vw, 82px);
+    font-weight: bold;
+
+    line-height: 1.05;
 }
+
+
+/* Highlighted tagline */
+
+.hero-content h1 span {
+    color: var(--gold);
+}
+
+
+/* Description */
+
+.hero-description {
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    color: #f5eee4;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+/* Explore Menu button */
+
+.hero-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 14px 28px;
+
+    color: var(--gold);
+    background: transparent;
+
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Button arrow */
+
+.hero-menu-btn span {
+    font-size: 20px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Button hover */
+
+.hero-menu-btn:hover {
+    color: var(--dark-brown);
+    background: var(--gold);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.30);
+}
+
+
+.hero-menu-btn:hover span {
+    transform: translateY(4px);
+}
+
+
+/* Hero entrance animation */
+
+@keyframes heroFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
 #menu{
     text-align:center;
     padding:30px;
 }
 
 #menu h2{
-    color:white;
+    color:var(--burgundy);
     font-size:35px;
     text-shadow:2px 2px 5px black;
     margin-bottom:20px;
@@ -392,9 +538,9 @@ nav .nav-link.active{
 }
 
 
-/* =========================================
-   HIDDEN WEEKEND OFFERS
-   ========================================= */
+
+   /* HIDDEN WEEKEND OFFERS */
+ 
 
 .weekend-offers {
     padding: 70px 20px;
@@ -546,7 +692,23 @@ nav .nav-link.active{
     text-align: center;
 }
 .hidden-offers {
-    display: none;
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition:
+        max-height 0.8s ease,
+        opacity 0.5s ease,
+        padding 0.8s ease;
+}
+
+.hidden-offers.show-offers {
+    max-height: 2000px;
+    opacity: 1;
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 .offers-close button {
@@ -960,6 +1122,351 @@ footer{
 
     margin-right:auto;
 }
+/* ZESTORA AI Assistant */
+#ai-toggle {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 62px;
+    height: 62px;
+
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+
+    background: var(--burgundy);
+    color: var(--gold);
+
+    font-size: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    z-index: 9999;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Floating Button Hover */
+#ai-toggle:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    background: var(--gold);
+    color: var(--dark-brown);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+.ai-chat {
+    position: fixed;
+
+    right: 25px;
+    bottom: 100px;
+
+    width: 370px;
+    max-width: calc(100vw - 30px);
+    height: 520px;
+
+    background: var(--cream);
+
+    border: 2px solid var(--gold);
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+
+    z-index: 9998;
+
+    display: flex;
+    flex-direction: column;
+
+    /* Hidden initially */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Chat Window Open */
+.ai-chat.ai-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+.ai-header {
+    padding: 16px 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--burgundy),
+        var(--terracotta)
+    );
+
+    color: var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 2px solid var(--gold);
+}
+
+
+/* Header Information */
+.ai-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* AI Avatar */
+.ai-avatar {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+    color: var(--dark-brown);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Assistant Name */
+.ai-header h3 {
+    margin: 0;
+
+    color: var(--white);
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Online Status */
+.ai-header span {
+    color: #d8f5d8;
+
+    font-size: 12px;
+}
+
+
+/* Close Button */
+#ai-close {
+    border: none;
+
+    background: transparent;
+
+    color: var(--white);
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+
+#ai-close:hover {
+    transform: rotate(90deg);
+}
+
+.ai-messages {
+    flex: 1;
+
+    padding: 18px;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            rgba(255, 248, 238, 0.96),
+            rgba(255, 248, 238, 0.96)
+        );
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Bot Message */
+.ai-message {
+    max-width: 85%;
+
+    padding: 12px 15px;
+
+    margin-bottom: 14px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.ai-bot {
+    align-self: flex-start;
+
+    background: var(--white);
+
+    color: var(--dark-brown);
+
+    border-left: 4px solid var(--gold);
+
+    border-radius: 5px 15px 15px 15px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* User Message */
+.ai-user {
+    align-self: flex-end;
+
+    background: var(--burgundy);
+
+    color: var(--white);
+
+    border-radius: 15px 5px 15px 15px;
+}
+.ai-quick-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 5px;
+}
+
+
+.ai-quick-actions button {
+    padding: 9px 12px;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 20px;
+
+    background: var(--white);
+
+    color: var(--burgundy);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+
+.ai-quick-actions button:hover {
+    background: var(--gold);
+
+    color: var(--dark-brown);
+
+    transform: translateY(-2px);
+}
+.ai-input-area {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px;
+
+    background: var(--white);
+
+    border-top: 1px solid #ddd;
+}
+
+
+/* Input */
+#ai-input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 11px 14px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 25px;
+
+    outline: none;
+
+    background: var(--cream);
+
+    color: var(--dark-brown);
+
+    font-size: 13px;
+
+    transition: border-color 0.2s ease;
+}
+
+
+#ai-input:focus {
+    border-color: var(--gold);
+
+    box-shadow: 0 0 0 2px rgba(244, 185, 66, 0.15);
+}
+
+
+/* Send Button */
+#ai-send {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--burgundy);
+
+    color: var(--gold);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.25s ease;
+}
+
+
+#ai-send:hover {
+    background: var(--gold);
+
+    color: var(--dark-brown);
+
+    transform: scale(1.08);
+}
 
 
 @media (max-width:767px){
@@ -986,20 +1493,37 @@ footer{
 
     /* WELCOME */
 
-    #welcome{
-
-        padding:50px 15px;
+        .hero-section {
+        min-height: 560px;
     }
 
-    #welcome h2{
+    .hero-overlay {
+        min-height: 560px;
 
-        font-size:28px;
+        padding: 70px 20px;
     }
 
-    #welcome p{
-
-        font-size:16px;
+    .hero-label {
+        font-size: 11px;
+        letter-spacing: 2.5px;
     }
+
+    .hero-content h1 {
+        font-size: 46px;
+        line-height: 1.1;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .hero-menu-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+
 
 
     /* MENU */
@@ -1181,6 +1705,54 @@ footer{
     #contact button{
 
         max-width:100%;
+    }
+    #ai-toggle {
+        right: 18px;
+        bottom: 18px;
+
+        width: 56px;
+        height: 56px;
+
+        font-size: 25px;
+    }
+
+
+    .ai-chat {
+        right: 15px;
+        bottom: 85px;
+
+        width: calc(100vw - 30px);
+
+        height: 500px;
+
+        border-radius: 16px;
+    }
+
+
+    .ai-header {
+        padding: 14px 15px;
+    }
+
+
+    .ai-messages {
+        padding: 15px;
+    }
+
+
+    .ai-message {
+        font-size: 13px;
+    }
+
+
+    .ai-quick-actions button {
+        font-size: 11px;
+
+        padding: 8px 10px;
+    }
+
+
+    #ai-input {
+        font-size: 12px;
     }
 
 }
